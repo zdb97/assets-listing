@@ -1,17 +1,10 @@
 ### Project Structure
 
-src/
-├── components/ # React components
-│ ├── Header.tsx # Header component
-│ ├── Footer.tsx # Footer component
-│ ├── ContentList.tsx # Main content list component
-├── App.tsx # Main application entry point
-├── App.css # Global styles
-├── index.tsx # React DOM rendering
-public/
-├── feed/
-│ └── sample.json # Static JSON data for the app
-dist/ # Production build output (after `npm run build`)
+📂 src/ ├── 📂 components/ # React components │ ├── 📄 Header.tsx # Header component │ ├── 📄 Footer.tsx # Footer component │ ├── 📄 ContentList.tsx # Main content list component ├── 📄 App.tsx # Main application entry point ├── 📄 App.css # Global styles ├── 📄 index.tsx # React DOM rendering
+
+📂 public/ ├── 📂 feed/ │ └── 📄 sample.json # Static JSON data for the app
+
+📂 dist/ # Production build output (after npm run build)
 
 In the project directory, you can run:
 
