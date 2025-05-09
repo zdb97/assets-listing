@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+### Project Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+src/
+├── components/ # React components
+│ ├── Header.tsx # Header component
+│ ├── Footer.tsx # Footer component
+│ ├── ContentList.tsx # Main content list component
+├── App.tsx # Main application entry point
+├── App.css # Global styles
+├── index.tsx # React DOM rendering
+public/
+├── feed/
+│ └── sample.json # Static JSON data for the app
+dist/ # Production build output (after `npm run build`)
 
 In the project directory, you can run:
+
+### `npm install`
+
+install required project depedencies and dev-dependencies
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm run test`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The default build folder is renamed to dist using the postbuild script. Depending on your operating system, use the appropriate command for `postBuild`:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For Unix-like systems (macOS, Linux): `"postbuild": "mv build dist"`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For Windows: `"postbuild": "move build dist"`
 
-### `npm run eject`
+After running the build command:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The production-ready files will be in the dist folder. Then run `serve -s dist` to locally host the dist folder.
