@@ -25,6 +25,10 @@ Launches the test runner in the interactive watch mode.
 
 To run all tests, regardless of changes, use the --watchAll flag
 
+### `npm run test:playwright`
+
+Launches the test with playwright.
+
 ### `npm run build`
 
 The default build folder is renamed to dist using the postbuild script. Depending on your operating system, use the appropriate command for `postBuild`:

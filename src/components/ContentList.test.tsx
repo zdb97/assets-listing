@@ -94,12 +94,6 @@ describe("ContentList Component", () => {
   });
 
   it("renders items correctly after successful fetch", async () => {
-    (global.fetch as jest.Mock).mockImplementationOnce(() =>
-      Promise.resolve({
-        json: () => Promise.resolve(mockData),
-      })
-    );
-
     render(
       <ContentList
         title="Popular Series"
@@ -116,12 +110,6 @@ describe("ContentList Component", () => {
   });
 
   it("renders movie items correctly after successful fetch", async () => {
-    (global.fetch as jest.Mock).mockImplementationOnce(() =>
-      Promise.resolve({
-        json: () => Promise.resolve(mockData),
-      })
-    );
-
     render(
       <ContentList
         title="Popular Movies"
@@ -137,12 +125,6 @@ describe("ContentList Component", () => {
   });
 
   it("limits the number of items rendered based on entries", async () => {
-    (global.fetch as jest.Mock).mockImplementationOnce(() =>
-        Promise.resolve({
-          json: () => Promise.resolve(mockData),
-        })
-      );
-
     render(
       <ContentList
         title="Popular Series"
