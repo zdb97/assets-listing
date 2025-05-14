@@ -1,5 +1,5 @@
 import React from "react";
-import ContentList from "./ContentList";
+import ContentList from "./ContentList/ContentList";
 
 const Movies: React.FC = () => {
   return (
@@ -8,10 +8,10 @@ const Movies: React.FC = () => {
       jsonUrl="/feed/sample.json"
       entries={21}
       filterCondition={(item) =>
-            item.programType === "movie" && item.releaseYear >= 2010
+        item.programType === "movie" && item.releaseYear >= 2010
       }
     />
   );
-};  
+};
 
 export default Movies;

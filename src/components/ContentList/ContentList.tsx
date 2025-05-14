@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { truncateText } from "../utils/utils";
-import { ERR_TEXT, LOADING_TEXT } from "../constants/constants";
+import { truncateText } from "../../utils/utils";
+import { ERR_TEXT, LOADING_TEXT } from "../../constants/constants";
 
 interface ContentItem {
   title: string;
@@ -37,8 +37,12 @@ const ContentList: React.FC<ContentListProps> = ({
     fetch(jsonUrl)
       .then((response) => response.json())
       .then((data) => {
+        // console.log("Fetched Data:", data); // Debugging line
         // Filter and sort entries
-        const filteredItems = data.entries.filter(filterCondition);
+        const filteredItems: ContentItem[] = (
+          data.entries as ContentItem[]
+        ).filter(filterCondition);
+        // console.log("Filtered Items:", filteredItems); // Debugging line
         const sortedItems = filteredItems.sort(
           (a: ContentItem, b: ContentItem) => a.title.localeCompare(b.title)
         );

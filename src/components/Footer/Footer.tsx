@@ -1,10 +1,11 @@
 import React from "react";
-import facebookIcon from "../assets/social/facebook-white.svg";
-import instagramIcon from "../assets/social/instagram-white.svg";
-import twitterIcon from "../assets/social/twitter-white.svg";
-import appStoreIcon from "../assets/store/app-store.svg";
-import googlePlayIcon from "../assets/store/play-store.svg";
-import windowsStoreIcon from "../assets/store/windows-store.svg";
+import facebookIcon from "../../assets/social/facebook-white.svg";
+import instagramIcon from "../../assets/social/instagram-white.svg";
+import twitterIcon from "../../assets/social/twitter-white.svg";
+import appStoreIcon from "../../assets/store/app-store.svg";
+import googlePlayIcon from "../../assets/store/play-store.svg";
+import windowsStoreIcon from "../../assets/store/windows-store.svg";
+import "./Footer.css";
 
 const Footer: React.FC = () => (
   <footer className="footer">

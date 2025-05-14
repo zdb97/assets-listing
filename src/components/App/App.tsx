@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Series from "./components/Series";
-import Movies from "./components/Movies";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import Home from "../Home";
+import Series from "../Series";
+import Movies from "../Movies";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Header />
@@ -19,6 +19,6 @@ function App() {
       <Footer />
     </Router>
   );
-}
+};
 
 export default App;

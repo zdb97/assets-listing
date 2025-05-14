@@ -1,5 +1,5 @@
 import React from "react";
-import ContentList from "./ContentList";
+import ContentList from "./ContentList/ContentList";
 
 const Series: React.FC = () => {
   return (
