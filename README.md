@@ -29,6 +29,10 @@ To run all tests, regardless of changes, use the --watchAll flag
 
 Launches the test with playwright.
 
+### `npm run lint`
+
+To run eslint
+
 ### `npm run build`
 
 The default build folder is renamed to dist using the postbuild script. Depending on your operating system, use the appropriate command for `postBuild`:
