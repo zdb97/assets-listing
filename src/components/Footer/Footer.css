@@ -66,14 +66,23 @@
 }
 
 @media (max-width: 768px) {
+  .footer__links {
+    display: block;
+  }
+  .footer__links li {
+    padding: 0 0 10px;
+  }
+  .footer__separator {
+    display: none;
+  }
   .footer__apps {
-    justify-content: center; /* Center the icons */
+    justify-content: center;
     flex-wrap: wrap; /* Allow icons to wrap to the next row */
-    gap: 12px; /* Adjust spacing for smaller screens */
+    gap: 12px;
     padding: 0;
   }
 
   .footer__apps img {
-    height: 32px; /* Reduce icon size for smaller screens */
+    height: 32px;
   }
 }

@@ -30,7 +30,6 @@
 .main__content {
   display: flex;
   flex-wrap: wrap;
-  /* grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); */
   gap: 16px;
   max-width: 1200px;
   margin: 0 auto;
@@ -89,4 +88,15 @@
   width: 100%;
   height: auto;
   margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .main__content,
+  .main__content--homepage {
+    justify-content: center;
+  }
+
+  .main__title h2 {
+    text-align: center;
+  }
 }
