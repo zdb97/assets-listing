@@ -1,6 +1,25 @@
 ### Project Structure
 
-📂 src/ ├── 📂 components/ # React components │ ├── 📄 Header.tsx # Header component │ ├── 📄 Footer.tsx # Footer component │ ├── 📄 ContentList.tsx # Main content list component ├── 📄 App.tsx # Main application entry point ├── 📄 App.css # Global styles ├── 📄 index.tsx # React DOM rendering
+📂 src/
+├── 📂 assets/ # Images, fonts, and other static files
+├── 📂 components/ # Reusable React components
+│ ├── 📄 Header.tsx # Header component
+│ ├── 📄 Footer.tsx # Footer component
+│ ├── 📄 ContentList.tsx # Main content list component
+│ └── ... # Other components
+├── 📂 constants/ # App-wide constants
+│ └── 📄 constants.ts
+├── 📂 pages/ # Route-level components (pages/screens)
+│ ├── 📄 Home.tsx
+│ ├── 📄 Movies.tsx
+│ └── 📄 Series.tsx
+├── 📂 styles/ # Global CSS/SCSS files
+│ └── 📄 main.css
+├── 📂 utils/ # Utility/helper functions
+│ └── 📄 utils.ts
+├── 📄 custom.d.ts # Custom TypeScript module declarations
+├── 📄 App.tsx # Main application entry point
+├── 📄 index.tsx # React DOM rendering
 
 📂 public/ ├── 📂 feed/ │ └── 📄 sample.json # Static JSON data for the app
 
