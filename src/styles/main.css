@@ -1,3 +1,19 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #191919;
+  color: #f9fafb;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
 .container {
   max-width: 1200px;
   margin-left: auto;
@@ -35,20 +51,6 @@
   margin: 0 auto;
   padding: 16px 16px 50px;
   color: black;
-}
-
-.main__content--homepage {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 16px;
-}
-
-.main__content--homepage .card {
-  background-size: cover;
-  background-position: center;
 }
 
 .card__wrapper {
@@ -91,8 +93,7 @@
 }
 
 @media (max-width: 768px) {
-  .main__content,
-  .main__content--homepage {
+  .main__content {
     justify-content: center;
   }
 

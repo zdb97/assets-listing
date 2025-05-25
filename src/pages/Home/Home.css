@@ -1,0 +1,19 @@
+.main__content--homepage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.main__content--homepage .card {
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .main__content--homepage {
+    justify-content: center;
+  }
+}

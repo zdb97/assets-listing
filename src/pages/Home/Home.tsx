@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import placeholderImage from "../assets/placeholder.png";
+import placeholderImage from "../../assets/placeholder.png";
+import "./Home.css";
 
 const Home: React.FC = () => (
   <main className="main" aria-labelledby="main-title">
