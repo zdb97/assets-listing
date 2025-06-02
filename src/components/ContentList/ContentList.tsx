@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { truncateText } from "../../utils/utils";
-import { ERR_TEXT, LOADING_TEXT } from "../../constants/constants";
+import {
+  ERR_TEXT,
+  LOADING_TEXT,
+  NO_ITEMS_TEXT,
+} from "../../constants/constants";
 
-interface ContentItem {
+export interface ContentItem {
   title: string;
   description: string;
   programType: string;
@@ -23,6 +27,20 @@ interface ContentListProps {
   filterCondition: (item: ContentItem) => boolean;
 }
 
+// type guard to ensure the data is an array of ContentItem
+const isValidContentItem = (item: unknown): item is ContentItem => {
+  const itemAsAny = item as any;
+  return (
+    typeof item === "object" &&
+    item !== null &&
+    typeof itemAsAny.title === "string" &&
+    typeof itemAsAny.programType === "string" &&
+    typeof itemAsAny.releaseYear === "number" &&
+    itemAsAny.images &&
+    typeof itemAsAny.images["Poster Art"]?.url === "string"
+  );
+};
+
 const ContentList: React.FC<ContentListProps> = ({
   title,
   jsonUrl,
@@ -34,26 +52,42 @@ const ContentList: React.FC<ContentListProps> = ({
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch(jsonUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log("Fetched Data:", data); // Debugging line
-        // Filter and sort entries
-        const filteredItems: ContentItem[] = (
-          data.entries as ContentItem[]
-        ).filter(filterCondition);
-        // console.log("Filtered Items:", filteredItems); // Debugging line
-        const sortedItems = filteredItems.sort(
-          (a: ContentItem, b: ContentItem) => a.title.localeCompare(b.title)
-        );
-        setItems(sortedItems.slice(0, entries));
+    const abortController = new AbortController();
+
+    fetch(jsonUrl, { signal: abortController.signal })
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
       })
-      .catch(() => {
-        setIsError(true);
+      .then((data) => {
+        if (!abortController.signal.aborted) {
+          const validEntries = data.entries.filter(isValidContentItem);
+
+          // Filter and sort entries
+          const filteredItems: ContentItem[] =
+            validEntries.filter(filterCondition);
+          const sortedItems = filteredItems.sort(
+            (a: ContentItem, b: ContentItem) => a.title.localeCompare(b.title)
+          );
+          setItems(sortedItems.slice(0, entries));
+        }
+      })
+      .catch((err) => {
+        if (!abortController.signal.aborted && err.name !== "AbortError") {
+          setIsError(true);
+        }
       })
       .finally(() => {
-        setIsLoading(false);
+        if (!abortController.signal.aborted) {
+          setIsLoading(false);
+        }
       });
+
+    return () => {
+      abortController.abort();
+    };
   }, [jsonUrl, filterCondition, entries]);
 
   return (
@@ -72,6 +106,8 @@ const ContentList: React.FC<ContentListProps> = ({
             <p role="alert" aria-live="assertive">
               {ERR_TEXT}
             </p>
+          ) : items.length === 0 ? (
+            <>{NO_ITEMS_TEXT}</>
           ) : (
             items.map((item) => (
               <li className="card__wrapper" key={item.title}>
@@ -94,4 +130,4 @@ const ContentList: React.FC<ContentListProps> = ({
   );
 };
 
-export default ContentList;
+export default memo(ContentList);
