@@ -14,6 +14,16 @@ li {
   list-style: none;
 }
 
+.loading {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  /* color: #555, */
+  width: 100%;
+}
+
 .container {
   max-width: 1200px;
   margin-left: auto;
