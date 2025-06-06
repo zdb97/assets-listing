@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "move build dist",
+    "postbuild": "mv build dist",
     "test": "react-scripts test",
     "test:playwright": "playwright test",
     "eject": "react-scripts eject",
